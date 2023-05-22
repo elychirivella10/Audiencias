@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
 
-import {searchRequest} from './prueba'
+//importar axios
+import axios from 'axios'
+
+//var
+import {rutaAxios} from 'variablesGoblales'
 
 const SearchRequest=({insertRequests, requests})=>{
-
+    
     const [state, insertState] = useState({
         num_request:"",
         name:"",
@@ -11,11 +15,12 @@ const SearchRequest=({insertRequests, requests})=>{
         approach:""
     })
 
-    const getRequest =(e)=>{
-       const prueba = searchRequest(state.num_request)
-       console.log(prueba)
+    const getRequest =async(e)=>{       
+        const peticion = await axios.get(`${rutaAxios}requests/consult/${state.num_request}`)
+
+        console.log(state)
         insertState({
-            ...prueba
+            ...peticion.data
         })
     }
 
@@ -79,9 +84,7 @@ const SearchRequest=({insertRequests, requests})=>{
                         </div> 
                     </div>
                 </div>
-            </div>
-
-            
+            </div>          
 
             <div className="field is-horizontal">
                 <div className="field-label is-normal">

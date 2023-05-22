@@ -22,13 +22,13 @@ const Container=({children, data, index})=>{
 
 const Control=({deleteRequest, data})=>{
     return(
-        <div class="list-item-controls">
-            <div class="buttons is-right">
-                <button class="button" onClick={()=>{
+        <div className="list-item-controls">
+            <div className="buttons is-right">
+                <button className="button" onClick={()=>{
                     deleteRequest(data.request)
                 }}>
-                    <span class="icon is-small">
-                    <i class="fas fa-edit"></i>
+                    <span className="icon is-small">
+                    <i className="fas fa-edit"></i>
                     </span>
                     <span>Edit</span>
                 </button>

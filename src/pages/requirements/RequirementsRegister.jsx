@@ -31,13 +31,14 @@ const RequirementsRegister=()=>{
         id_status:1,
         id_worker:2
     })
-
+console.log(requirements)
     const deleteRequest=(request)=>{
         insertRequests(
             requests.filter(r=>r.request !== request)
         )
 
-    }
+    } 
+
     const insertRequirementS = async () => {
         if (requests.length>0) {
             const respuesta = await axios.post(`${rutaAxios}requirements`,{...requirements})
@@ -54,7 +55,6 @@ const RequirementsRegister=()=>{
                     return navigate(`/requirements/list/${respuesta.data.requirements_id}`, { replace: true });
                 }
             }
-            console.log(respuesta.data.requirements_id)
         }else{
             alerta.open({type:"warning", message:'Ingrese una solicitud'})
         }

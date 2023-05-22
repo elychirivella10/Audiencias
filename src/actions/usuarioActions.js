@@ -20,7 +20,7 @@ export const agregarUsuario = (body) => async dispatch => {
             });
 
             setTimeout(function(){ dispatch ({
-                type:AGREGAR_USUARIO, 
+                type:INSERT_USER, 
                 payload: respuesta.data
             }) },1000);
             return true
@@ -31,6 +31,6 @@ export const agregarUsuario = (body) => async dispatch => {
 export const desInfoUser = () => {
     localStorage.removeItem('infoUser');
     return {
-        type:ELIMINAR_INFO_USUARIO
+        type:DESLOGEAR_USER
     }
 }

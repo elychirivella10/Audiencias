@@ -1,4 +1,4 @@
-import {AUTHENTICAR_USUARIO, DESLOGEAR_USUARIO} from '../actions/types'
+import {AUTHENTICATION_USER, DESLOGEAR_USER} from '../actions/types'
 
 import store from '../store'
 
@@ -26,7 +26,7 @@ export const authUsuario = (body)  => async dispatch => {
         });
         
         setTimeout(function(){ dispatch ({
-            type:AUTHENTICAR_USUARIO, 
+            type:AUTHENTICATION_USER, 
             payload: true
         }) },1000);
 
@@ -38,7 +38,7 @@ export const authUsuario = (body)  => async dispatch => {
 }
 export const authUsuarioManual = ()  => async dispatch => {
     dispatch ({
-        type:AUTHENTICAR_USUARIO, 
+        type:AUTHENTICATION_USER, 
         payload: true
     })
 }
@@ -55,7 +55,7 @@ export const comproUsuario = async (token) => {
 export const desUsuario = () => {
     if(deleteToken() === true){
         return {
-            type:DESLOGEAR_USUARIO
+            type:DESLOGEAR_USER
         }
     }
 }

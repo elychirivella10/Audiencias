@@ -27,6 +27,5 @@ const prueba =[
 ]
 
 export const searchRequest=(request)=>{
-    console.log(request)
     return prueba.filter(p=>p.num_request===request)[0]
 }

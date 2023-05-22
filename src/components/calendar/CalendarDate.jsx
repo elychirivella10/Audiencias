@@ -17,10 +17,6 @@ function Calendar({type, range, insertAppointments, state}) {
       });
     });
 
-    
-
-    
-
     // To access to bulmaCalendar instance of an element
     // eslint-disable-next-line no-undef
     const element = document.querySelector('#calendar');
@@ -28,7 +24,7 @@ function Calendar({type, range, insertAppointments, state}) {
       // bulmaCalendar instance is available as element.bulmaCalendar
       element.bulmaCalendar.on('select', (datepicker) => {
           const data = datepicker.data.value().split([" - "]);
-        console.log(datepicker.data)
+        //console.log(datepicker.data)
           insertAppointments({
             ...state,
             appointment_date:data[0]

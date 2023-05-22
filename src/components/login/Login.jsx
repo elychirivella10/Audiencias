@@ -5,17 +5,27 @@ import {Link} from 'react-router-dom'
 
 //redux
 import {connect} from 'react-redux'
+import {authUsuario} from '../../actions/authActions'
+
+//router
+import {withRouter} from 'react-router-dom'
+
 
 const Login=({SelectCenter, insertSiteCenter})=>{
+    
     const [login, insertLogin] = useState({
         user:"",
         pass:""
-    })
-
-    const onSubmit = async ()=>{
+    }) 
         
-    } 
-
+    const onSubmit = async ()=>{
+        const auth = await authUsuario(login) 
+        console.log(auth)
+       
+        if (auth == true) {
+            window.location = '/';
+        }   
+} 
     return (
             <React.Fragment>
                 <div className="box pl-5 pr-5 z-index-1 animate__animated animate__fadeInLeft">

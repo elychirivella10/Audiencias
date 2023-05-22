@@ -38,7 +38,7 @@ const Panel = ({title, subtitle, ...rest}) =>{
                     </p>
                     <p> 
                         {URLactual.href.slice(-4) === "list"?
-                            <a href='register'><button class="button is-info is-focused">+ Agregar</button></a>: 
+                            <a href='register'><button className="button is-info is-focused">+ Agregar</button></a>: 
                         null}  
                     </p>
                     <Content {...rest}/>
