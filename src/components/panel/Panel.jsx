@@ -9,6 +9,8 @@ import Status from 'components/status/Status'
 import Workers from 'components/workers/Workers'
 import logo from 'assets/logo.png'
 
+var URLactual = window.location
+
 const Panel = ({title, subtitle, ...rest}) =>{
 
     return (
@@ -33,6 +35,11 @@ const Panel = ({title, subtitle, ...rest}) =>{
                     </p>
                     <p className="subtitle">
                         {subtitle}
+                    </p>
+                    <p> 
+                        {URLactual.href.slice(-4) === "list"?
+                            <a href='register'><button class="button is-info is-focused">+ Agregar</button></a>: 
+                        null}  
                     </p>
                     <Content {...rest}/>
                 </div>
