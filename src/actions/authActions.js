@@ -9,8 +9,8 @@ import {rutaAxios} from 'variablesGoblales'
 import {setToken, deleteToken} from 'helpers/auth/auth'
 
 
-
 export const authUsuario = (body)  => async dispatch => {
+
     const myHeaders = new Headers()
 	    myHeaders.append('Content-type', 'application/json')
 
@@ -18,23 +18,21 @@ export const authUsuario = (body)  => async dispatch => {
 	      headers: myHeaders,
 	      body : JSON.stringify(body)  
 	    }
-    const respuesta = await axios.post(`${rutaAxios}user/public/api/user/authenticate`, myConfig)
-    
-    if (respuesta.data !== 'No user found' && respuesta.data !== 'undefined') {
-        store.subscribe( () => {
-            setToken(respuesta.data.Token)
-        });
-        
-        setTimeout(function(){ dispatch ({
-            type:AUTHENTICATION_USER, 
-            payload: true
-        }) },1000);
 
-        return true
-    }
+    const respuesta = await axios.post(`${rutaAxios}auth/user/authentication`, myConfig)
+        if (respuesta.data !== 'No user found' && respuesta.data !== 'undefined') {
+            store.subscribe( () => {
+                setToken(respuesta.data.Token)
+            });
+            
+            setTimeout(function(){ dispatch ({
+                type:AUTHENTICATION_USER, 
+                payload: true
+            }) },1000);
 
+            return true
+        }
     return false
-
 }
 export const authUsuarioManual = ()  => async dispatch => {
     dispatch ({

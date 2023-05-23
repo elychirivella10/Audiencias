@@ -7,24 +7,25 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {authUsuario} from '../../actions/authActions'
 
-//router
-import {withRouter} from 'react-router-dom'
+//Alertas
+import alerta from '../alert/Alert'
 
 
-const Login=({SelectCenter, insertSiteCenter})=>{
+
+const Login=({SelectCenter, insertSiteCenter, authUsuario})=>{
     
     const [login, insertLogin] = useState({
         user:"",
         pass:""
     }) 
+
+    const onClick = async ()=>{
+        const inLog = await authUsuario(login)
+        if (inLog === true) {
+            window.location = '/'
+            console.log(inLog)
+        }
         
-    const onSubmit = async ()=>{
-        const auth = await authUsuario(login) 
-        console.log(auth)
-       
-        if (auth == true) {
-            window.location = '/';
-        }   
 } 
     return (
             <React.Fragment>
@@ -61,8 +62,8 @@ const Login=({SelectCenter, insertSiteCenter})=>{
                                     <i className="fas fa-lock"></i>
                                 </span>
                             </div>
-                            <button className = "button is-fullwidth is-blue mb-4" onSubmit={onSubmit}>Ingresar</button>
                         </form>
+                            <button className = "button is-fullwidth is-blue mb-4" onClick={onClick}>Ingresar</button>
                         	
                     </div>
                     <div className='mb-4'>
@@ -79,8 +80,8 @@ const Login=({SelectCenter, insertSiteCenter})=>{
     )
 }
 
-const mapStateToProps = (state) => ({
-	appointments:state.appointment.appointments
+const mapStateToProps = (login) => ({
+	inicio:login
 });
 
-export default connect(mapStateToProps,null)(Login)
+export default connect(mapStateToProps,{authUsuario})(Login)
