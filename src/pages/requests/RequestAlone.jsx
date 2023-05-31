@@ -13,6 +13,7 @@ import {useParams} from 'react-router-dom'
 //redux
 import {connect} from 'react-redux'
 import {getRequest} from 'actions/requestActions'
+import Blocker from 'components/login/Blocker'
 
 const RequestAlone=({requests, getRequest, request})=>{
 
@@ -23,7 +24,8 @@ const RequestAlone=({requests, getRequest, request})=>{
     }, [id])
     
     return( 
-        <div className="columns is-centered is-multiline">
+        <div className="columns is-centered is-multiline"> 
+        <Blocker />
             <div className="column is-12">
                 <Panel title='Solicitud' subtitle={`N°${request.num_request}`} statusPanel={request.status} data={[
                     {

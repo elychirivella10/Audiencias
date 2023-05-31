@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 import SearchRequest from 'components/requests/SearchRequest'
 import List from 'components/list/List'
 import Panel from 'components/panel/Panel'
+import Blocker from '../../components/login/Blocker'
 
 //axios
 import axios from 'axios'
@@ -63,6 +64,7 @@ console.log(requirements)
 
     return( 
         <div className="columns is-centered is-multiline">
+            <Blocker />
             <div className="column is-12">
                 <Panel title='Requerimientos' subtitle='Ingresar' foot={
                         {

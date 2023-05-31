@@ -5,6 +5,7 @@ import List from 'components/list/List'
 import Export from 'components/export/Export'
 import SearchDate from 'components/search/SearchDate'
 import SearchText from 'components/search/SearchText'
+import Blocker from '../../components/login/Blocker'
 import Panel from 'components/panel/Panel'
 
 import {connect} from 'react-redux'
@@ -32,6 +33,7 @@ const RequirementsList=({getRequirements, requirements})=>{
 
     return( 
         <div className="columns is-centered is-multiline">
+            <Blocker />
             <div className="column is-12">
                 <Panel title='Requerimientos' subtitle='Lista' foot={
                     {

@@ -8,7 +8,6 @@ import {rutaAxios} from 'variablesGoblales'
 
 import {setToken, deleteToken} from 'helpers/auth/auth'
 
-
 export const authUsuario = (body)  => async dispatch => {
 
     const myHeaders = new Headers()
@@ -21,10 +20,12 @@ export const authUsuario = (body)  => async dispatch => {
 
     const respuesta = await axios.post(`${rutaAxios}auth/user/authentication`, myConfig)
         if (respuesta.data !== 'No user found' && respuesta.data !== 'undefined') {
+            localStorage.setItem('token', respuesta.data.token)
             store.subscribe( () => {
-                setToken(respuesta.data.Token)
+                setToken(respuesta.data.token)
             });
-            
+
+
             setTimeout(function(){ dispatch ({
                 type:AUTHENTICATION_USER, 
                 payload: true

@@ -10,9 +10,11 @@ import {authUsuario} from '../../actions/authActions'
 //Alertas
 import alerta from '../alert/Alert'
 
-
-
 const Login=({SelectCenter, insertSiteCenter, authUsuario})=>{
+    
+    if (localStorage.getItem('token')) {
+       window.location = '/dashboard'
+    }  
     
     const [login, insertLogin] = useState({
         user:"",
@@ -22,13 +24,12 @@ const Login=({SelectCenter, insertSiteCenter, authUsuario})=>{
     const onClick = async ()=>{
         const inLog = await authUsuario(login)
         if (inLog === true) {
-            window.location = '/'
-            console.log(inLog)
+            alerta.open({type:"success", message:'Credenciales Aceptadas'})
+            window.location = '/dashboard'
         }
-        
 } 
     return (
-            <React.Fragment>
+        <React.Fragment>
                 <div className="box pl-5 pr-5 z-index-1 animate__animated animate__fadeInLeft">
                     <SelectCenter insertSiteCenter={insertSiteCenter} site='Login'/>
                     <div className='mb-5 mr-5 ml-5 '>

@@ -8,6 +8,7 @@ import {getAppointment} from 'actions/appointmentActions'
 import Export from 'components/export/Export'
 import SearchDate from 'components/search/SearchDate'
 import SearchText from 'components/search/SearchText'
+import Blocker from 'components/login/Blocker'
 
 const AppointmentsList=({getAppointment, appointments})=>{
 
@@ -16,7 +17,8 @@ const AppointmentsList=({getAppointment, appointments})=>{
     }, [getAppointment])
     
     return(
-        <div className='columns is-multiline'>
+        <div className='columns is-multiline'> 
+        <Blocker />
             <div className="column is-9">
                 {appointments.map(appointment=>{
                     return(

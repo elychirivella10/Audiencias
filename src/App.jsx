@@ -18,8 +18,8 @@ import Routes from 'routes/Routes'
 initAxiosInterceptors()
 
 function App() {
-  return (
-      <Provider store = {store}>  
+  return (    
+    <Provider store = {store}> 
         <Routes/>
       </Provider>
   );

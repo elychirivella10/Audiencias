@@ -5,7 +5,7 @@ import List from 'components/list/List'
 import Export from 'components/export/Export'
 import Panel from 'components/panel/Panel'
 import Appointments from 'components/appointments/Appointments'
-import {prueba} from './prueba'
+import Blocker from '../../components/login/Blocker'
 
 //react-router-dom
 import {useParams} from 'react-router-dom'
@@ -26,6 +26,7 @@ const RequirementsAlone=({requirements, getRequirement, requirement, getRequests
     console.log(id)
     return( 
         <div className="columns is-centered is-multiline">
+            <Blocker />
             <div className="column is-12">
                 <Panel title='Requerimiento' workerPanel={requirement?requirement.name:''} statusPanel={requirement.status} subtitle={`N°${requirement.id}`} data={[
                     {

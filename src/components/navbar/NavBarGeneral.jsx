@@ -5,7 +5,10 @@ import Logo from 'assets/logo.png'
 
 import {Link} from 'react-router-dom'
 
+import LogOut from '../login/Logout'
+
 const NavBarGeneral=()=>{
+
     return (
         <nav className="navbar is-centered is-sticky top-1 is-radius-full mb-6"  role="navigation" aria-label="main navigation">
             <div className="navbar-brand ml-5">
@@ -65,7 +68,7 @@ const NavBarGeneral=()=>{
                         <span className="icon is-small is-right mr-2">
                             <i className="fas fa-user"></i>
                         </span>
-                    Ely Chirivella
+                    Alex Aular
                     </Link>
 
                     <div className="navbar-dropdown is-right is-radius mt-3">
@@ -79,9 +82,7 @@ const NavBarGeneral=()=>{
                         Contact
                     </Link>
                     <hr className="navbar-divider"/>
-                    <Link className="navbar-item">
-                        Salir
-                    </Link>
+                       <LogOut />
                     </div>
                 </div>
                 </div>
