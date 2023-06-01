@@ -4,8 +4,9 @@ const PageNotFound = () => {
 
   const onClick = async() =>{ 
     window.location = '/dashboard'
-}
+  }
 
+  let url = window.location.href
 
   return ( 
     <div className='notFound'>
@@ -23,7 +24,7 @@ const PageNotFound = () => {
       <div class="error">
         <div class="error__title">404</div>
         <div class="error__subtitle">Ops! Est&aacute;s en una v&iacute;a errada.</div>
-        <div class="error__description">La p&aacute;gina que buscas no existe.<br/> Puedes pulsar el boton de abajo para volver a la pagina inicial.</div>
+        <div class="error__description">La p&aacute;gina {url} no existe.<br/> Puedes pulsar el boton de abajo para volver a la pagina inicial.</div>
         <button className = "button is-fullwidth is-blue mb-4" onClick={onClick}>Volver</button>
       </div>
 

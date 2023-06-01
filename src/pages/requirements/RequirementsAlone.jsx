@@ -12,6 +12,7 @@ import {useParams} from 'react-router-dom'
 
 //redux
 import {connect} from 'react-redux'
+import {useSelector} from "react-redux";
 import {getRequirement} from 'actions/requirementActions'
 import {getRequests} from 'actions/requestActions'
 
@@ -22,8 +23,10 @@ const RequirementsAlone=({requirements, getRequirement, requirement, getRequests
         getRequirement(id, requirements)
         getRequests(id)
     }, [id])
-    
-    console.log(id)
+
+    const counter = useSelector((storageState) => storageState)
+    console.log(counter)
+
     return( 
         <div className="columns is-centered is-multiline">
             <Blocker />

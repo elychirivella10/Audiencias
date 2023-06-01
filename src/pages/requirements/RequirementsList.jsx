@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-
 //components
 import List from 'components/list/List'
 import Export from 'components/export/Export'
@@ -17,7 +16,6 @@ const RequirementsList=({getRequirements, requirements})=>{
             const closeCant = requirements.filter(r=>r.status==="CERRADA")
             return closeCant.length
         }
-        
     }
 
     const [panelData, insertPanelData] = useState({
@@ -30,7 +28,6 @@ const RequirementsList=({getRequirements, requirements})=>{
         
     }, [getRequirements])
     
-
     return( 
         <div className="columns is-centered is-multiline">
             <Blocker />
